@@ -5,11 +5,10 @@ import SendMessage from './SendMessage';
 import CloseIcon from '@mui/icons-material/Close';
 
 interface ChatProps {
-  isChatOpen: boolean;
   setIsChatOpen: any;
 }
 
-const Chat: FC<ChatProps> = ({ isChatOpen, setIsChatOpen }) => {
+const Chat: FC<ChatProps> = ({ setIsChatOpen }) => {
   const [messages, setMessages] = useState<any>([]);
 
   const sendMessageHandler = (message: string) => {

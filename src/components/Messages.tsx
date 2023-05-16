@@ -1,11 +1,17 @@
-import { Box, Button, Stack, Typography } from '@mui/material';
-import { FC } from 'react';
+import { Box, Stack, Typography } from '@mui/material';
+import { FC, useEffect, useRef } from 'react';
 
 interface MessagesProps {
   messages: any;
 }
 
 const Messages: FC<MessagesProps> = ({ messages }) => {
+  const scrollEndRef = useRef<any>(null);
+
+  useEffect(() => {
+    scrollEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
   return (
     <Stack
       sx={{
@@ -31,7 +37,7 @@ const Messages: FC<MessagesProps> = ({ messages }) => {
     >
       {messages?.map((item: any) => (
         <Box
-          key={item.id}
+          key={item.time}
           sx={
             {
               color: 'white',
@@ -72,6 +78,7 @@ const Messages: FC<MessagesProps> = ({ messages }) => {
           )}
         </Box>
       ))}
+      <div ref={scrollEndRef} />
     </Stack>
   );
 };

@@ -12,8 +12,8 @@ const App = () => {
       alignItems="center"
       sx={{
         position: 'fixed',
-        bottom: { xs: 16, md: 50 },
-        right: { xs: 16, md: 50 },
+        bottom: { xs: 16, md: 30 },
+        right: { xs: 16, md: 30 },
         zIndex: 1000000,
         cursor: 'pointer',
         borderRadius: isChatOpen ? '8px' : '50%',
@@ -26,7 +26,7 @@ const App = () => {
       onClick={() => !isChatOpen && setIsChatOpen(true)}
     >
       {isChatOpen ? (
-        <Chat isChatOpen={isChatOpen} setIsChatOpen={setIsChatOpen} />
+        <Chat setIsChatOpen={setIsChatOpen} />
       ) : (
         <ChatBubbleIcon
           sx={{
